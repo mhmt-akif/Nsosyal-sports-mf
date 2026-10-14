@@ -5,6 +5,8 @@ node_modules/
 .next/
 dist/
 tmp/
+.mf/
+.__mf__temp/
 *.exe
 
 # Ortam değişkenleri (gizli bilgiler)
