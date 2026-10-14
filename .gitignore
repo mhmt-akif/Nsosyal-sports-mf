@@ -1,0 +1,12 @@
+# Bağımlılıklar
+node_modules/
+
+# Build çıktıları
+.next/
+dist/
+tmp/
+*.exe
+
+# Ortam değişkenleri (gizli bilgiler)
+.env
+.env.local
