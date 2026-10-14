@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import TabMenu from "@/components/TabMenu";
+import RightSidebar from "@/components/layout/RightSidebar";
+import SideBar from "@/components/layout/Sidebar";
+import TabMenu from "@/components/layout/TabMenu";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -25,11 +27,16 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
-        <header className="border-b border-zinc-200 px-4 py-3 dark:border-zinc-800">
-          <span className="text-lg font-bold">NSosyal</span>
-        </header>
-        <TabMenu />
-        <main className="flex-1">{children}</main>
+        {/* Sayfa en fazla 1420px genişliğinde ve ekranın ortasında (mx-auto).
+            Sütunlar: sol sidebar | orta içerik (geri kalan, ~764px) | sağ kenar. Dar ekranda sağ kenar gizli. */}
+        <div className="mx-auto grid w-full max-w-355 flex-1 grid-cols-[96px_minmax(0,1fr)] lg:grid-cols-[340px_minmax(0,1fr)_316px]">
+          <SideBar />
+          <div className="min-w-0">
+            <TabMenu />
+            <main>{children}</main>
+          </div>
+          <RightSidebar />
+        </div>
       </body>
     </html>
   );
