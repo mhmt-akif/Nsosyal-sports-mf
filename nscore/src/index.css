@@ -1,5 +1,18 @@
-/* Sadece nscore tek başına çalışırken (main.tsx) yüklenir; host'a gitmez. */
+/* Sadece nscore tek başına çalışırken (main.tsx) yüklenir; host'a gitmez.
+   Host'ta bunları nsosyal/app/globals.css sağlıyor, burada aynılarını taklit ediyoruz. */
+@import 'tailwindcss/preflight.css' layer(base);
+
+:root {
+  --background: #1b1e26;
+  --foreground: #ededed;
+  --surface: #242833;
+  --panel: #1f222b;
+  --line: #2c303b;
+}
+
 body {
   margin: 0;
+  background: var(--background);
+  color: var(--foreground);
   font-family: system-ui, sans-serif;
 }

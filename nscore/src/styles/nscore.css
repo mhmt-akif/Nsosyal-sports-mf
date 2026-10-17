@@ -1,0 +1,17 @@
+/* NSCore stilleri. Host (nsosyal) Tailwind'in sıfırlama (preflight) katmanını zaten yüklüyor;
+   burada sadece theme + utilities alınıyor, böylece host'un stilleri ikinci kez ezilmez. */
+@layer theme, base, components, utilities;
+@import 'tailwindcss/theme.css' layer(theme);
+@import 'tailwindcss/utilities.css' layer(utilities);
+
+/* Renkler host'un :root değişkenlerinden gelir (nsosyal/app/globals.css).
+   Aynı isimler sayesinde bg-surface, border-line gibi sınıflar iki projede de aynı rengi verir.
+   --font-sans host'takiyle aynı olmalı; yoksa bu dosya yüklenince host'un yazı tipini ezer. */
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-surface: var(--surface);
+  --color-panel: var(--panel);
+  --color-line: var(--line);
+  --font-sans: var(--font-inter), system-ui, sans-serif;
+}
